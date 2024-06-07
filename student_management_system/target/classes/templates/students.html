@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Student management System</title>
+
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+
+<link rel="stylesheet" th:href="@{/css/style.css}">
+
+</head>
+
+<body>
+	<nav class="navbar navbar-light bg-light">
+	<a class="navbar-brand"
+			href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fillustrations%2Fschool-logo&psig=AOvVaw0NlhgyoFkSNQbP5p0IyEi4&ust=1684582194334000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCLCK0vCjgf8CFQAAAAAdAAAAABAT">
+			<i class="fa-solid fa-school"></i>
+		</a>
+		<a class="navbar-brand"
+			href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fillustrations%2Fschool-logo&psig=AOvVaw0NlhgyoFkSNQbP5p0IyEi4&ust=1684582194334000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCLCK0vCjgf8CFQAAAAAdAAAAABAT">
+			<i>Student Management System</i>
+		</a>
+		<div class="row">
+			<div class="col-lg-3">
+				<a th:href="@{/students/new}" class="btn btn-primary btn-sm mb">
+					Add New Student</a>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+		<div class="row">
+			<h1>List of Students</h1>
+		</div>
+
+
+		<table class="table table-striped table-bordered">
+			<thead class="table-dark">
+				<tr>
+					<th>Student Id</th>
+					<th>Student First Name</th>
+					<th>Student Last Name</th>
+					<th>Student Email</th>
+					<th>Action</th>
+
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr th:each="student: ${students}">
+					<td th:text="${student.id}"></td>
+					<td th:text="${student.firstName}"></td>
+					<td th:text="${student.lastName}"></td>
+					<td th:text="${student.email}"></td>
+
+					<td><a th:href="@{|/students/edit/${student.id}|}"
+						class="btn btn-primary">Update</a>
+						
+						<a th:href="@{|/students/delete/${student.id}|}"
+						class="btn btn-danger">delete</a>
+						</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

@@ -1,0 +1,5 @@
+{"properties": [{
+  "name": "pring.datasource.driver-class-name",
+  "type": "java.lang.String",
+  "description": "A description for 'pring.datasource.driver-class-name'"
+}]}
